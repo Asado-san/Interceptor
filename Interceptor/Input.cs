@@ -407,12 +407,12 @@ namespace Interceptor
         /// <summary>
         /// Warning: This function, if using the driver, does not function reliably and often moves the mouse in unpredictable vectors. An alternate version uses the standard Win32 API to get the current cursor's position, calculates the desired destination's offset, and uses the Win32 API to set the cursor to the new position.
         /// </summary>
-        public void MoveMouseBy(int deltaX, int deltaY, bool useDriver = false)
+        public void MoveMouseBy(int deltaX, int deltaY)
         {
             Stroke stroke = new Stroke();
             MouseStroke mouseStroke = new MouseStroke();
             Point mousecoord = ConvertDevicePoint(deltaX, deltaY);
-
+            
             mouseStroke.X = mousecoord.X;
             mouseStroke.Y = mousecoord.Y;
 
