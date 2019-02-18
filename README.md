@@ -39,8 +39,8 @@ input.Load();
 5. Do your stuff.
 
 ```
-input.MoveMouseTo(5, 5);  // Please note this doesn't use the driver to move the mouse; it uses System.Windows.Forms.Cursor.Position
-input.MoveMouseBy(25, 25); //  Same as above ^
+input.MoveMouseTo(5, 5); //Moves the Mouse to Pixel 5,5, using the Inception Driver
+input.MoveMouseBy(25, 25); //Moves the Mouse from the current position + 25, 25 Pixels, using the Inception Driver
 input.SendLeftClick();
 
 input.KeyDelay = 1; // See below for explanation; not necessary in non-game apps
