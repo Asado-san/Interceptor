@@ -76,7 +76,3 @@ Notes:
 The driver has a limitation in that it can't send keystrokes without receiving at least one keystroke. This is because the driver doesn't know which device id the keyboard is, so it has to wait to receive a keystroke to deduce the device id from your keystroke.
 
 In summary, before sending a keystroke, always physically press the keyboard once. Tap any key. Then you can send keystrokes. This doesn't apply to receiving keystrokes, because by receiving a keystroke, you have of course already pressed a key.
-
-4. MoveMouseTo() and MoveMouseBy() completely ignore the keyboard driver. It uses System.Windows.Forms.Position to set and get the cursor's position (which calls the standard Win32 API underneath for those respective functions).
-
-The reason for this is, while exploring the keyboard driver's mouse moving capabilities, I noticed it didn't move the cursor by pixel units, but rather it seemed to move the cursor by acceleration. This would continually produce inconsistent values when I wanted to move the cursor to a certain location. Because the Win32 cursor setting API isn't usually blocked by games and the like, I find simply calling these standard APIs to be sufficient without resorting to the driver. Please note that this only applies for setting cursor position. Intercepting the cursor still works okay. You can, for example, invert the x and y axes of the mouse using Interceptor.
